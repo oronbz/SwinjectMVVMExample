@@ -29,6 +29,10 @@ class ImageSearchSpec: QuickSpec {
                 observer.sendCompleted()
             }.observe(on: QueueScheduler())
         }
+        
+        func requestImage(url: String) -> SignalProducer<UIImage, NetworkError> {
+            return SignalProducer.empty
+        }
     }
     
     class BadStubNetwork: Networking {
@@ -40,6 +44,10 @@ class ImageSearchSpec: QuickSpec {
                 observer.sendCompleted()
                 }.observe(on: QueueScheduler())
         }
+        
+        func requestImage(url: String) -> SignalProducer<UIImage, NetworkError> {
+            return SignalProducer.empty
+        }
     }
     
     class ErrorStubNetwork: Networking {
@@ -47,6 +55,10 @@ class ImageSearchSpec: QuickSpec {
             return SignalProducer { observer, disposable in
                 observer.send(error: NetworkError.NotConnectedToInternet)
             }.observe(on: QueueScheduler())
+        }
+        
+        func requestImage(url: String) -> SignalProducer<UIImage, NetworkError> {
+            return SignalProducer.empty
         }
     }
     

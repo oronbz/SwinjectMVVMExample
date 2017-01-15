@@ -9,6 +9,8 @@ PODS:
     - Result (~> 3.1)
   - Result (3.1.0)
   - Swinject (2.0.0-beta.3)
+  - SwinjectStoryboard (1.0.0-beta.3):
+    - Swinject (= 2.0.0-beta.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - Quick
   - ReactiveCocoa (from `https://github.com/ReactiveCocoa/ReactiveCocoa.git`, tag `5.0.0-alpha.4`)
   - Swinject (= 2.0.0-beta.3)
+  - SwinjectStoryboard (= 1.0.0-beta.3)
 
 EXTERNAL SOURCES:
   ReactiveCocoa:
@@ -37,7 +40,8 @@ SPEC CHECKSUMS:
   ReactiveSwift: 065349bbc45b827934681c99f9c96e767871cab6
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   Swinject: a94dd23e05c7b557e53ee4e0f795f15cba19c7df
+  SwinjectStoryboard: 13615584c211abda82552df2ebd4942cc8d6f487
 
-PODFILE CHECKSUM: c93a5e4e7e744b3d01a20a3762ec8f63a5038efc
+PODFILE CHECKSUM: bb376a43f13614c5ae04b70935bc3a9926318ea4
 
 COCOAPODS: 1.1.1

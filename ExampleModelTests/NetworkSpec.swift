@@ -40,6 +40,36 @@ class NetworkSpec: QuickSpec {
                 expect(error).toEventually(equal(NetworkError.NotReachedServer), timeout: 5)
             }
         }
+        
+        describe("Image") {
+            it("eventually gets an image") {
+                var image: UIImage?
+                network.requestImage(url: "https://httpbin.org/image/jpeg")
+                    .on(value: { image = $0 })
+                    .start()
+                
+                expect(image).toEventuallyNot(beNil(), timeout: 5)
+            }
+            
+            it("eventually gets an error if incorrect data for an image is returned") {
+                var error: NetworkError?
+                network.requestImage(url: "https://httpbin.org/get")
+                    .on(failed: { error = $0 })
+                    .start()
+                
+                expect(error).toEventually(equal(NetworkError.IncorrectDataReturned))
+            }
+            
+            it("eventually gets an error if the network has a problem") {
+                var error: NetworkError?
+                network.requestImage(url: "https://not.existing.server.comm/image/jpeg")
+                    .on(failed: { error = $0 })
+                    .start()
+                
+                expect(error).toEventually(equal(NetworkError.NotReachedServer), timeout: 5)
+                
+            }
+        }
     }
 }
 

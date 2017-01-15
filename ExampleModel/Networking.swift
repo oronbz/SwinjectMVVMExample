@@ -11,4 +11,6 @@ import ReactiveSwift
 public protocol Networking {
     func requestJSON(url: String, parameters: [String: Any]?)
         -> SignalProducer<Any, NetworkError>
+    
+    func requestImage(url: String) -> SignalProducer<UIImage, NetworkError>
 }

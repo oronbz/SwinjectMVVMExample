@@ -29,4 +29,9 @@ public final class ImageSearch: ImageSearching {
                 }
             }
     }
+    
+    
+    func eacher(num: Int) -> Void {
+        print(num)
+    }
 }
